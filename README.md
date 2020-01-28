@@ -5,6 +5,8 @@ CREATED DATE: 28 JANUARY 2020
 Project Title
 Replace the Project Title
 
+PROJECT TITLE: POST YOUR WORK TO GITHUB
+
 Description
 Describe what your project is about and what it does
 
