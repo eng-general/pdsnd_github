@@ -222,8 +222,10 @@ def main():
         user_stats(df)
         raw_data(df)
 
-        restart = input('\nWould you like to restart? Enter yes or no.\n')
-        if restart.lower() != 'yes':
+
+    #user chose to start all over or to keep on viewing raw data
+        begin_again = input('\nWould you like to restart? Enter yes or no.\n')
+        if begin_again.lower() != 'yes':
             break
 
 if __name__ == "__main__":
