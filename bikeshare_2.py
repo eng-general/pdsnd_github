@@ -38,7 +38,7 @@ def get_filters():
             continue
         else:
             break
-        
+
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     print('Which day would you like to explore:')
     print('*****************************')
@@ -63,7 +63,7 @@ def get_filters():
     print('City: ', city.lower())
     print('Month: ', month.lower())
     print('Day: ', day.lower())
-  
+
     print('-'*40)
     return city, month, day
 
@@ -105,7 +105,7 @@ def time_stats(df):
     # TO DO: display the most common month
     most_common_month = df['month'].mode()[0]
     print('most common month: ', most_common_month)
-    
+
     # TO DO: display the most common day of week
     most_common_week_day = df['day_of_week'].mode()[0]
     print('most_common_week_day:', most_common_week_day)
@@ -114,7 +114,7 @@ def time_stats(df):
     df['hour'] = df['Start Time'].dt.hour
     most_common_start_hour = df['hour'].mode()[0]
     print('most_common_start_hour', most_common_start_hour)
-    
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -135,7 +135,7 @@ def station_stats(df):
     print('most commonly used end station: ', end_station)
 
     # TO DO: display most frequent combination of start station and end station trip
-    df.groupby(['Start Station', 'End Station']).count()	
+    df.groupby(['Start Station', 'End Station']).count()
     print('most frequent combination of start and end station is/are :', start_station, "and", end_station)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -172,22 +172,22 @@ def user_stats(df):
     try:
 	    gender_count = df['Gender'].value_counts()
 	    print('Gender type:\n',gender_count)
-	    print()	
+	    print()
     except:
 	    print('sorry, gender info not found for this city.')
 	    print()
 
     # TO DO: Display earliest, most recent, and most common year of birth
-    try: 	
+    try:
 	    earliest_year_of_birth = df['Birth Year'].min()
 	    most_common_year_of_birth = df['Birth Year'].mode()
 	    most_recent_year_of_birth = df['Birth Year'].max()
-	
+
 	    print('INFO FOR BIRTH YEAR')
 	    print('Earliest year of birth: ',int(earliest_year_of_birth))
 	    print('most common year of birth: ', int(most_common_year_of_birth))
 	    print('most recent year of birth: ', int(most_recent_year_of_birth))
-	
+
     except:
 	    print('sorry, Year info not found for this city')
 	    print('so, no info about Earliest year of birth,most common year of birth,most recent year of birth. ')
@@ -195,7 +195,11 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-def view_raw_data(df):
+
+
+
+    #create a function to view raw data
+def raw_data(df):
     response = input('\nWould you like to raw data? Enter yes or no: \n')
     st=0
     while True:
@@ -216,7 +220,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-        view_raw_data(df)
+        raw_data(df)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
